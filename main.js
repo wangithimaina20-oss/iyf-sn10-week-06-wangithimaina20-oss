@@ -25,3 +25,36 @@ async function getWeather() {
     document.getElementById("result").innerText = error.message;
   }
 }
+// CALLBACK EXAMPLE
+function greet(name, callback) {
+  console.log("Hi " + name);
+  callback();
+}
+
+function sayBye() {
+  console.log("Goodbye!");
+}
+
+greet("Sharon", sayBye);
+
+// PROMISE EXAMPLE
+const myPromise = new Promise((resolve, reject) => {
+  let success = true;
+
+  if (success) {
+    resolve("Promise successful!");
+  } else {
+    reject("Promise failed!");
+  }
+});
+
+myPromise
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+
+// ASYNC/AWAIT EXAMPLE
+async function testAsync() {
+  return "Async working!";
+}
+
+testAsync().then(console.log);
