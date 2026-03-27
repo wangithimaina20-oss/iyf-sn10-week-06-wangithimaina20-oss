@@ -58,3 +58,21 @@ async function testAsync() {
 }
 
 testAsync().then(console.log);
+// FETCH WITH ERROR HANDLING
+async function fetchData() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+
+    if (!response.ok) {
+      throw new Error("Error fetching data");
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+fetchData();
